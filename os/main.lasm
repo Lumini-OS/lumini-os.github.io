@@ -24,7 +24,7 @@ add
 	snb
 		vod main()
 		{
-			msg "Lumini OS. Разработано компанией «Neubauten Software», 2018;\n"
+			msg "Lumini OS (v1.0). Разработано компанией «Neubauten Software», 2018;\n"
 			kbd "#CommandLine" 13 cmds(window.event)
 		}
 		
