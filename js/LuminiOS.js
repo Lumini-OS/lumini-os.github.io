@@ -17,7 +17,7 @@ function LoadLASMProgram(url) {
 			code = code.replace(/prp (.*) (.*)/g, "$1=$2");
 			code = code.replace(/snb/g, "<script>");
 			code = code.replace(/sne/g, "</script>");
-			code = code.replace(/trm init/g, "<textarea id=\"Terminal\"></textarea>");
+			code = code.replace(/trm init/g, "<textarea id=\"Terminal\" readonly></textarea>");
 			
 			// Javascript translators
 			

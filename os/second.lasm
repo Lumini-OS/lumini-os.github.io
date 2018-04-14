@@ -1,0 +1,7 @@
+org lum
+
+beg
+	snb
+		mod "Test"
+	sne
+end
