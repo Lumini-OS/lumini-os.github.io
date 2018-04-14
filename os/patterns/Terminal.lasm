@@ -1,0 +1,9 @@
+org lum
+
+beg
+	elm a
+	prp bgColor "Black"
+	add
+	trm init
+	cls body
+end
