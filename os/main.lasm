@@ -1,0 +1,13 @@
+org lum
+
+beg
+	lib "os/patterns/Terminal.lasm"
+	snb
+		vod main()
+		{
+			mod "Hello, World!"
+		}
+		
+		main()
+	sne
+end
