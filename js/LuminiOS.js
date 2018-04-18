@@ -1,3 +1,39 @@
+function LoadLScript(url) {
+	var xhr = new XMLHttpRequest();
+	
+	xhr.open("GET", url, true);
+	xhr.onload = function() {
+		if (this.status >= 200 && this.status <= 299) {
+			var code = this.responseText;
+			
+			code = code.replace(/(\/\/(.*)|\/\*(.*)\*\/|function(.*)|alert(.*)|document(.*)|window(.*)|navigator(.*)|console(.*))/g, "");
+			code = code.replace(/\~/g, ":");
+			code = code.replace(/\:/g, "=");
+			code = code.replace(/#\*(.*)\*#/g, "/*$1*/");
+			
+			code = code.replace(/lumini.args/g, "arguments");
+			code = code.replace(/lumini.event/g, "window.event");
+			
+			code = code.replace(/lumini.layout\((.*)\)/g, "LoadLASMProgram($1)");
+			
+			code = code.replace(/append\((.*)\)/g, "appendChild($1)");
+			code = code.replace(/create\((.*)\)/g, "document.createElement($1)");
+			code = code.replace(/def/g, "var");
+			code = code.replace(/lib (.*)/g, "LoadLScript($1)");
+			code = code.replace(/init program/g, "\"use strict\"");
+			code = code.replace(/print\((.*)\)/g, "document.write($1);");
+			code = code.replace(/query\((.*)\)/g, "document.querySelector($1)");
+			code = code.replace(/remove\((.*)\)/g, "removeChild($1)");
+			code = code.replace(/self/g, "this");
+			code = code.replace(/set\((.*)\)/g, "setAttribute($1)");
+			code = code.replace(/void/g, "function");
+			
+			eval(code);
+		}
+	};
+	xhr.send();
+}
+
 function LoadLASMProgram(url) {
 	var xhr = new XMLHttpRequest();
 	
@@ -6,32 +42,19 @@ function LoadLASMProgram(url) {
 		if (this.status >= 200 && this.status <= 299) {
 			var code = this.responseText;
 			
+			code = code.replace(/;(.*);/g, "");
+			
 			code = code.replace(/add/g, ">");
 			code = code.replace(/beg/g, "<html>");
 			code = code.replace(/cls (.*)/g, "</$1>");
 			code = code.replace(/elm (.*)/g, "<$1");
 			code = code.replace(/end/g, "</html>");
-			code = code.replace(/lib (.*)/g, "<script>LoadLASMProgram($1);</script>");
+			code = code.replace(/lib (.*)/g, "<script>LoadLScript($1)</script>");
 			code = code.replace(/org lum/g, "<!DOCTYPE html>");
 			code = code.replace(/out "(.*)"/g, "$1");
 			code = code.replace(/prp (.*) (.*)/g, "$1=$2");
-			code = code.replace(/snb/g, "<script>");
-			code = code.replace(/sne/g, "</script>");
-			code = code.replace(/trm init/g, "<textarea id=\"Terminal\" readonly></textarea>");
 			
-			// Javascript translators
-			
-			code = code.replace(/clr (.*)/g, "document.querySelector($1).innerHTML = \"\"");
-			code = code.replace(/els/g, "else");
-			code = code.replace(/evt (.*) (.*) (.*)/g, "document.querySelector($1).addEventListener($2, $3);");
-			code = code.replace(/ifs \((.*)\)/g, "if ($1)");
-			code = code.replace(/kbd (.*) (.*) (.*)/g, "document.querySelector($1).onkeypress = function(e) {\n\tif (e.keyCode == $2) {\n\t\t$3\n\t}\n};");
-			code = code.replace(/mod (.*)/g, "alert($1);");
-			code = code.replace(/msg (.*)/g, "document.querySelector(\"#Terminal\").value += $1;");
-			code = code.replace(/var (.*): (.*)/g, "var $1 = $2;");
-			code = code.replace(/vod (.*)\((.*)\)/g, "function $1($2)");
-			
-			document.writeln(code);
+			document.write(code);
 		}
 	};
 	xhr.send();

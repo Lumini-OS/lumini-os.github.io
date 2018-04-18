@@ -3,48 +3,26 @@ org lum
 elm html
 prp manifest "cache.mf"
 add
-	elm head add
+	elm head
+	add
 		elm link
-		prp href "os/styles/main.css"
+		prp href "os/layouts/os.css"
 		prp rel "stylesheet"
 		add
 		cls link
+		elm meta
+		prp charset "utf-8"
+		prp content "width=device-width, height=device-height, initial-scale=1, user-scalable=no"
+		prp name "viewport"
+		add
+		cls meta
+		elm title
+		add
+		out "Lumini OS"
+		cls title
 	cls head
 	elm body
-	prp bgColor "Black"
 	add
-		trm init
-		elm br add
-		elm input
-		prp id "CommandLine"
-		prp placeholder "Поле_ввода"
-		add
-		cls input
 	cls body
-	snb
-		vod main()
-		{
-			msg "Lumini OS (v1.0). Разработано компанией «Neubauten Software», 2018;\n"
-			kbd "#CommandLine" 13 cmds(window.event)
-		}
-		
-		vod cmds(e)
-		{
-			if (e.target.value == "clear")
-			{
-				document.querySelector("#Terminal").value = ""
-			} if (e.target.value.match("echo"))
-			{
-				msg e.target.value.split(" ")[1] + "\n"
-			} if (e.target.value == "show_Date")
-			{
-				msg new Date() + "\n"
-			} if (e.target.value == "user_Agent")
-			{
-				msg navigator.platform + "\n"
-			}
-		}
-		
-		main()
-	sne
+	lib "os/modules/bootloader.ls"
 cls html
