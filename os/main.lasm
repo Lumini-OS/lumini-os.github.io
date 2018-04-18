@@ -12,7 +12,7 @@ add
 		cls link
 		elm meta
 		prp charset "utf-8"
-		prp content "width=device-width, height=device-height, initial-scale=1, user-scalable=no"
+		prp content "width=device-width,height=device-height,initial-scale=1,user-scalable=no"
 		prp name "viewport"
 		add
 		cls meta
