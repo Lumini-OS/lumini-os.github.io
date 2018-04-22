@@ -24,7 +24,7 @@ void main()
 			} if (e.target.value == "stop")
 			{
 				query("#Wrapper").remove(cmd_line);				
-				query("#Terminal").innerHTML +: "<span class=\"lu-info\">Ïðîãðàììà çàâåðøåíà!</span><br/>";
+				query("#Terminal").innerHTML +: "<span class=\"lu-info\">Программа завершена!</span><br/>";
 				
 				lib "os/modules/command_line.ls"
 			}
