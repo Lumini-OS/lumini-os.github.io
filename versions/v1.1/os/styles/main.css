@@ -1,0 +1,36 @@
+*
+{
+  background: Black;
+  color: Green;
+  box-sizing: border-box;
+  border: none;
+  font-family: monospace;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  height: 100%;
+  width: 100%;
+}
+
+input
+{
+  height: 24px;
+  left: calc(50% - 160px);
+  position: absolute;
+  top: calc(50% + 88px);
+  width: 320px;
+}
+
+#Terminal
+{
+  height: 176px;
+  left: calc(50% - 160px);
+  position: absolute;
+  resize: none;
+  top: calc(50% - 88px);
+  width: 320px;
+}

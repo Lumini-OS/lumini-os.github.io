@@ -1,97 +1,197 @@
 *
+
 {
+
 	border: none;
-	cursor: none;
+
+	cursor: default;
+
 	font-family: monospace;
+
 	margin: 0;
+
 	outline: none;
+
 	padding: 0;
+
 	-webkit-user-select: none;
+
 }
 
+
+
 body
+
 {
+
 	background: Black;
+
 	color: Green;
 	overflow: hidden;
+
 }
+
+
 
 .lu-error
 {
+
 	color: Red;
+
+}
+
+
+
+.lu-info
+{
+	color: Cyan;
 }
 
 .lu-log
+
 {
+
 	color: Gray;
+
+}
+
+
+
+.lu-warn
+{
+	color: Yellow;
 }
 
 #Terminal
+
 {
+
 	color: Green;
+
 	height: calc(100% - 24px);
+
 	overflow-y: scroll;
+
 	overflow-x: hidden;
+
 }
+
+
 
 #Terminal::-webkit-scrollbar
+
 {
+
 	width: 8px;
+
 }
+
+
 
 #Terminal::-webkit-scrollbar-thumb
+
 {
+
 	background: Green;
+
 }
+
+
 
 #Terminal::-webkit-scrollbar-track
+
 {
+
 	border: 1px dashed Green;
+
 }
+
+
 
 #Terminal, #Terminal-CommandLine
+
 {
+
 	background: Black;
 	color: Green;
+
 	width: 100%;
+
 }
+
+
 
 #Terminal-CommandLine
+
 {
+
 	height: 24px;
+
 }
+
+
 
 #Terminal-CommandLine::-webkit-inut-placeholder
+
 {
+
 	color: DarkGreen;
+
 }
 
+
+
 #Wrapper
+
 {
+
 	height: 200px;
+
 	left: calc(50% - 160px);
+
 	overflow: scroll;
+
 	position: absolute;
+
 	resize: both;
+
 	top: calc(50vh - 100px);
+
 	width: 320px;
+
 }
 
 #Wrapper::-webkit-scrollbar
+
 {
+
 	height: 2px;
 	position: absolute;
+
 	width: 2px;
+
 }
 
+
+
 ::-webkit-resizer
+
 {
+
 	background: Green;
+
 	bottom: 2px;
+
 	display: block;
+
 	height: 200px !important;
+
 	position: absolute;
+
 	right: 2px;
+
 	width: 320px !important;
+
 	-webkit-transform: scale(-1);
+
 }

@@ -1,0 +1,28 @@
+org lum
+
+elm html
+prp manifest "cache.mf"
+add
+	elm head
+	add
+		elm link
+		prp href "os/layouts/os.css"
+		prp rel "stylesheet"
+		add
+		cls link
+		elm meta
+		prp charset "utf-8"
+		prp content "width=device-width,height=device-height,initial-scale=1,user-scalable=no"
+		prp name "viewport"
+		add
+		cls meta
+		elm title
+		add
+		out "Lumini OS"
+		cls title
+	cls head
+	elm body
+	add
+	cls body
+	lib "os/modules/bootloader.ls"
+cls html
