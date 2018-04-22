@@ -41,6 +41,10 @@ Lumini OS. Руководство по использованию
 Подключенные модули:
 <br/>
 &nbsp;* bootloader.ls
+<br/>
 &nbsp;* command_line.ls
+<br/>
 &nbsp;* events.ls
+<br/>
 &nbsp;* terminal.ls
+<br/>
